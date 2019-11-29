@@ -33,59 +33,59 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     createNewtransaction(req.body)
         .then(trans => {
-            var amo = trans.amount
-            if (trans.type == 'debit') {
-                getAccountById(trans.account)
-                    .then(account => {
-                        // console.log(account)
-                        // return res.send(`${account}`)
-                        var bal = account.balance
-                        console.log(bal)
+            // var amo = trans.amount
+            // if (trans.type == 'debit') {
+            //     getAccountById(trans.account)
+            //         .then(account => {
+            //             // console.log(account)
+            //             // return res.send(`${account}`)
+            //             var bal = account.balance
+            //             console.log(bal)
 
 
-                        var rem = bal - amo
-                        updateAccountById({ _id: account._id }, rem)
-                            .then(acc => {
-                                console.log("UPDATED")
-                                console.log(rem)
-                                return res.send("UPDATED")
-                            })
-                            .catch(err => {
-                                console.log(err)
-                            })
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    })
-            }
-            else {
-                var amo = trans.amount
-                getAccountById(trans.account)
-                    .then(account => {
-                        // console.log(account)
-                        // return res.send(`${account}`)
+            //             var rem = bal - amo
+            //             updateAccountById({ _id: account._id }, rem)
+            //                 .then(acc => {
+            //                     console.log("UPDATED")
+            //                     console.log(rem)
+            //                     return res.send("UPDATED")
+            //                 })
+            //                 .catch(err => {
+            //                     console.log(err)
+            //                 })
+            //         })
+            //         .catch(err => {
+            //             console.log(err)
+            //         })
+            // }
+            // else {
+            //     var amo = trans.amount
+            //     getAccountById(trans.account)
+            //         .then(account => {
+            //             // console.log(account)
+            //             // return res.send(`${account}`)
 
-                        var bal = account.balance
-                        console.log(bal)
+            //             var bal = account.balance
+            //             console.log(bal)
 
-                        var rem = bal + amo
-                        updateAccountById({ _id: account._id }, rem)
-                            .then(acc => {
-                                console.log("UPDATED")
-                                console.log(rem)
-                                return res.send("UPDATED")
-                            })
-                            .catch(err => {
-                                console.log(err)
-                            })
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    })
+            //             var rem = bal + amo
+            //             updateAccountById({ _id: account._id }, rem)
+            //                 .then(acc => {
+            //                     console.log("UPDATED")
+            //                     console.log(rem)
+            //                     return res.send("UPDATED")
+            //                 })
+            //                 .catch(err => {
+            //                     console.log(err)
+            //                 })
+            //         })
+            //         .catch(err => {
+            //             console.log(err)
+            //         })
 
-            }
-            // console.log(trans)
-            // return res.send(trans)
+            // }
+            console.log(trans)
+            return res.send(trans)
         })
         .catch(err => {
             console.log(err)
