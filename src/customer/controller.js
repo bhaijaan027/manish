@@ -1,18 +1,18 @@
 import Customer from '../models/customer'
 
-const createNewcustomer = customer => {
+export const createNewcustomer = customer => {
     const createNewcustomer = new Customer(customer)
     return createNewcustomer.save()
 }
 
-const getCustomerById = id => {
+export const getCustomerById = id => {
     return Customer.findById(id)
 }
 
-const getCustomers = () => {
+export const getCustomers = () => {
     return Customer.find()
 }
 
-export const createNewcustomer = createNewcustomer
-export const getCustomerById = getCustomerById
-export const getCustomers = getCustomers
+// export const createNewcustomer = createNewcustomer
+// export const getCustomerById = getCustomerById
+// export const getCustomers = getCustomers

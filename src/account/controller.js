@@ -3,24 +3,24 @@ import Account from '../models/account'
 
 
 
-const createNewaccount = account => {
+export const createNewaccount = account => {
     const createNewaccount = new Account(account)
     return createNewaccount.save()
 }
 
-const getAccountById = id => {
+export const getAccountById = id => {
     return Account.findById(id).populate("customer")
 }
 
-const getAccounts = () => {
+export const getAccounts = () => {
     return Account.find().populate("customer")
 }
 
-const deleteAccountById = id => {
+export const deleteAccountById = id => {
     return Account.remove(id)
 }
 
-const updateAccountById = (id, bbb) => {
+export const updateAccountById = (id, bbb) => {
     return Account.findByIdAndUpdate(id, {
         $inc: {
             balance: bbb
@@ -37,10 +37,10 @@ const updateAccountById = (id, bbb) => {
 //   };
 
 
-export default {
-    createNewaccount: createNewaccount,
-    getAccountById: getAccountById,
-    getAccounts: getAccounts,
-    deleteAccountById,
-    updateAccountById
-}
+// export default {
+//     createNewaccount: createNewaccount,
+//     getAccountById: getAccountById,
+//     getAccounts: getAccounts,
+//     deleteAccountById,
+//     updateAccountById
+// }

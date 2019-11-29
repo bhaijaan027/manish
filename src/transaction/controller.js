@@ -18,7 +18,7 @@ import { createNewaccount, getAccountById, getAccounts, deleteAccountById, updat
 
 
 
-const createNewtransaction = async trans => {
+export const createNewtransaction = async trans => {
     const newTransaction = new Transaction(trans)
     let createdTransaction = await newTransaction.save();
 
@@ -34,17 +34,17 @@ const createNewtransaction = async trans => {
 // const getCustomerById = id => {
 //     return Customer.findById(id)
 // }
-const getTransactionById = id => {
-    return findById(id).populate("account")
+export const getTransactionById = id => {
+    return Transaction.findById(id).populate("account")
 }
 
 
-const getTransaction = () => {
-    return find().populate("account", {
+export const getTransaction = () => {
+    return Transaction.find().populate("account", {
         "accountNumber": 1
     })
 }
 
-export const createNewtransaction = createNewtransaction
-export const getTransaction = getTransaction
-export const getTransactionById = getTransactionById
+// export const createNewtransaction = createNewtransaction
+// export const getTransaction = getTransaction
+// export const getTransactionById = getTransactionById
