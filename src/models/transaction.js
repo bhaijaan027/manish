@@ -1,4 +1,4 @@
-const { model, Schema } = require("mongoose")
+import { model, Schema } from "mongoose"
 
 const transactionSchema = Schema({
     type: {
@@ -21,4 +21,4 @@ const transactionSchema = Schema({
 
 const transactionModel = model("transaction", transactionSchema)
 
-module.exports = transactionModel
+export default transactionModel

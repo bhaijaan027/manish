@@ -1,4 +1,4 @@
-const Account = require('../models/account')
+import Account from '../models/account'
 
 
 
@@ -37,7 +37,7 @@ const updateAccountById = (id, bbb) => {
 //   };
 
 
-module.exports = {
+export default {
     createNewaccount: createNewaccount,
     getAccountById: getAccountById,
     getAccounts: getAccounts,

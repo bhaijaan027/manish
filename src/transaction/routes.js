@@ -1,23 +1,13 @@
-const { Router } = require("express")
+import { Router } from "express"
 
 const router = Router()
 
-const Transaction = require('../models/transaction')
-const Account = require('../models/account')
+import Transaction from '../models/transaction'
+import Account from '../models/account'
 
-const {
-    createNewaccount,
-    getAccountById,
-    getAccounts,
-    deleteAccountById,
-    updateAccountById
-} = require("../account/controller")
+import { createNewaccount, getAccountById, getAccounts, deleteAccountById, updateAccountById } from "../account/controller"
 
-const {
-    createNewtransaction,
-    getTransaction,
-    getTransactionById
-} = require("./controller")
+import { createNewtransaction, getTransaction, getTransactionById } from "./controller"
 
 router.get('/', (req, res) => {
     getTransaction()
@@ -104,4 +94,4 @@ router.get('/:id', (req, res) => {
         })
 })
 
-module.exports = router
+export default router

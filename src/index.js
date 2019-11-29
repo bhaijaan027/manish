@@ -1,4 +1,4 @@
-const express = require('express')
+import express from 'express'
 
 const app = express()
 
@@ -11,23 +11,23 @@ const app = express()
 //       return  response.sendStatus(405)
 //     }
 // })
-const parser = require('body-parser')
+import { json, urlencoded } from 'body-parser'
 
-const mongoose = require('mongoose')
+import { connect } from 'mongoose'
 
-const CustomerRouter = require('./customer/routes')
+import CustomerRouter from './customer/routes'
 
-const AccountRouter = require('./account/routes')
+import AccountRouter from './account/routes'
 
-const TransactionRouter = require('./transaction/routes')
+import TransactionRouter from './transaction/routes'
 
 // const { model } = require('./models/customer')
 // const { schema } = require('./models/customer')
 
-app.use(parser.json({}))
+app.use(json({}))
 
 app.use(
-    parser.urlencoded({
+    urlencoded({
         extended: false
     })
 )
@@ -53,7 +53,7 @@ app.use("/transaction", TransactionRouter)
 
 
 
-mongoose.connect(
+connect(
     "mongodb+srv://root:root@cluster0-y2dw9.mongodb.net/test?retryWrites=true&w=majority",
     {
         useNewUrlParser: true,

@@ -1,16 +1,10 @@
-const { Router } = require("express")
+import { Router } from "express"
 
 const router = Router()
 
-const Account = require('../models/account')
+import Account from '../models/account'
 
-const {
-    createNewaccount,
-    getAccountById,
-    getAccounts,
-    deleteAccountById,
-    updateAccountById
-} = require("./controller")
+import { createNewaccount, getAccountById, getAccounts, deleteAccountById, updateAccountById } from "./controller"
 
 router.get('/', (req, res) => {
     getAccounts()
@@ -67,4 +61,4 @@ router.put('/:id', (req, res) => {
         })
 })
 
-module.exports = router
+export default router

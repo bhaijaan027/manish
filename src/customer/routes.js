@@ -1,12 +1,8 @@
-const { Router } = require("express")
+import { Router } from "express"
 const router = Router()
-const Customer = require('../models/customer')
+import Customer from '../models/customer'
 
-const {
-    createNewcustomer,
-    getCustomerById,
-    getCustomers
-} = require("./controller")
+import { createNewcustomer, getCustomerById, getCustomers } from "./controller"
 
 router.get('/', (req, res) => {
     // Customer.find({ "name": "MANISH" }, { mobile: 1, _id: 0 })
@@ -60,4 +56,4 @@ router.post('/', (req, res) => {
 })
 
 
-module.exports = router
+export default router

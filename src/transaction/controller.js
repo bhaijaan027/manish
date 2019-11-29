@@ -1,14 +1,8 @@
-const Transaction = require('../models/transaction')
-const Account = require('../models/account')
+import Transaction, { findById, find } from '../models/transaction'
+import Account from '../models/account'
 
 
-const {
-    createNewaccount,
-    getAccountById,
-    getAccounts,
-    deleteAccountById,
-    updateAccountById
-} = require("../account/controller")
+import { createNewaccount, getAccountById, getAccounts, deleteAccountById, updateAccountById } from "../account/controller"
 
 
 // const createNewTransaction = async transaction => {
@@ -41,19 +35,16 @@ const createNewtransaction = async trans => {
 //     return Customer.findById(id)
 // }
 const getTransactionById = id => {
-    return Transaction.findById(id).populate("account")
+    return findById(id).populate("account")
 }
 
 
 const getTransaction = () => {
-    return Transaction.find().populate("account", {
+    return find().populate("account", {
         "accountNumber": 1
     })
 }
 
-module.exports = {
-    createNewtransaction: createNewtransaction,
-    getTransaction: getTransaction,
-    getTransactionById: getTransactionById
-    // getCustomers: getCustomers
-}
+export const createNewtransaction = createNewtransaction
+export const getTransaction = getTransaction
+export const getTransactionById = getTransactionById
