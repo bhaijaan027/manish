@@ -1,8 +1,10 @@
 import { Router } from "express"
-const router = Router()
+
 import Customer from '../models/customer'
 
 import { createNewcustomer, getCustomerById, getCustomers } from "./controller"
+
+const router = Router()
 
 router.get('/', (req, res) => {
     // Customer.find({ "name": "MANISH" }, { mobile: 1, _id: 0 })

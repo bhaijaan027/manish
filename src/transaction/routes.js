@@ -1,6 +1,6 @@
 import { Router } from "express"
 
-const router = Router()
+
 
 import Transaction from '../models/transaction'
 import Account from '../models/account'
@@ -8,6 +8,8 @@ import Account from '../models/account'
 import { createNewaccount, getAccountById, getAccounts, deleteAccountById, updateAccountById } from "../account/controller"
 
 import { createNewtransaction, getTransaction, getTransactionById } from "./controller"
+
+const router = Router()
 
 router.get('/', (req, res) => {
     getTransaction()

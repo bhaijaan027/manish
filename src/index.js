@@ -1,6 +1,6 @@
 import express from 'express'
 
-const app = express()
+
 
 // app.use('/', (request,response) => {
 
@@ -23,6 +23,8 @@ import TransactionRouter from './transaction/routes'
 
 // const { model } = require('./models/customer')
 // const { schema } = require('./models/customer')
+
+const app = express()
 
 app.use(json({}))
 

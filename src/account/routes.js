@@ -1,10 +1,12 @@
 import { Router } from "express"
 
-const router = Router()
+
 
 import Account from '../models/account'
 
 import { createNewaccount, getAccountById, getAccounts, deleteAccountById, updateAccountById } from "./controller"
+
+const router = Router()
 
 router.get('/', (req, res) => {
     getAccounts()
