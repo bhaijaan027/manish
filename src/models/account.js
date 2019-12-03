@@ -1,6 +1,8 @@
 // const mongoose = require("mongoose")
 import { model, Schema } from "mongoose"
 
+import { composeWithMongoose } from "graphql-compose-mongoose";
+
 const accountSchema = Schema({
     type: {
         type: String,
@@ -21,7 +23,8 @@ const accountSchema = Schema({
         ref: "customer"
     }
 })
-
 const accountModel = model("account", accountSchema)
 
 export default accountModel
+export const AccountTC = composeWithMongoose(accountModel)
+
