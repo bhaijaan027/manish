@@ -50,4 +50,10 @@ schemaComposer.Query.addFields({
     transactions: TransactionTC.getResolver("findMany")
 })
 
+schemaComposer.Mutation.addFields({
+    createCustomer: CustomerTC.getResolver("createOne"),
+    createAccount: AccountTC.getResolver("createOne"),
+    createTransaction: TransactionTC.getResolver("createOne")
+})
+
 export default schemaComposer.buildSchema()
